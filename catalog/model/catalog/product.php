@@ -403,7 +403,6 @@ class ModelCatalogProduct extends Model {
 		else{
 			$results = $this->getCategories($product_id);
 			foreach ($results as $key) {
-			 	print_r($key);
 			 	$query1 = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_to_category WHERE category_id = '" . (int)$key['category_id'] . "' AND NOT product_id = '" . (int)$product_id . "' LIMIT 3");
 			 	foreach ($query1->rows as $result) {
 					$product_data[$result['product_id']] = $this->getProduct($result['product_id']);
